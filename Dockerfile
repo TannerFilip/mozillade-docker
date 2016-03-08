@@ -1,8 +1,6 @@
 FROM nginx
 MAINTAINER tanner filip <tanner@mozilla-community.org>
 
-EXPOSE 32769
-
 # do updates, and install git
 RUN apt-get -y update
 RUN apt-get -y dist-upgrade && apt-get -y install git-core php5-fpm curl
