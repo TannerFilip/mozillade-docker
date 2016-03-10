@@ -13,8 +13,6 @@ RUN curl https://raw.githubusercontent.com/TannerFilip/mozillade-docker/master/m
 RUN rm /etc/nginx/conf.d/default.conf
 RUN chown -R nginx:nginx /var/www/
 RUN sed -i s/www-data/nginx/g /etc/php5/fpm/pool.d/www.conf
+COPY startup.sh /root/
 
-
-# restart nginx
-RUN service nginx restart
-RUN service php5-fpm restart
+ENTRYPOINT ["bash","/root/startup.sh"]
