@@ -7,7 +7,7 @@ RUN apt-get -y dist-upgrade && apt-get -y install git-core php5-fpm curl
 
 # pull the code
 RUN git clone https://github.com/MozJan/mozillade /var/www/
-RUN curl https://raw.githubusercontent.com/TannerFilip/mozillade-docker/master/mozillade.conf > /etc/nginx/conf.d/mozillade.conf
+COPY mozillade.conf /etc/nginx/conf.d/mozillade.conf
 
 # some configurations
 RUN rm /etc/nginx/conf.d/default.conf
